@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: standalone
+---
+spring:
+  profiles: standalone
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem://localhost/~/testdb;MODE=MYSQL
+# jwt custom
+bithumb:
+  jwt:
+    secret: bithumb
+    expiration-ms: 86400000
